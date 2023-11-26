@@ -1,5 +1,6 @@
 package baseball.model;
 
+import static baseball.model.BallAttribute.NUMBER_OF_BALLS;
 import static baseball.model.CompareResult.NOTHING;
 
 import java.util.HashSet;
@@ -8,8 +9,6 @@ import java.util.Set;
 import java.util.stream.IntStream;
 
 public class Balls {
-
-    private static final int BALL_NUMBER = 3;
 
     private final List<Ball> balls;
 
@@ -28,7 +27,7 @@ public class Balls {
     }
 
     private void validateSize(final List<Integer> numbers) {
-        if (numbers.size() != BALL_NUMBER) {
+        if (numbers.size() != NUMBER_OF_BALLS) {
             throw new IllegalArgumentException();
         }
     }

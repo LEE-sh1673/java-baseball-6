@@ -1,11 +1,11 @@
 package baseball.model;
 
+import static baseball.model.BallAttribute.MAX_BALL_NUMBER;
+import static baseball.model.BallAttribute.MIN_BALL_NUMBER;
+
 import java.util.Objects;
 
 public class BallNumber {
-
-    private static final int MIN = 1;
-    private static final int MAX = 9;
 
     private final int number;
 
@@ -15,7 +15,7 @@ public class BallNumber {
     }
 
     private void validate(final int number) {
-        if (number < MIN || number > MAX) {
+        if (number < MIN_BALL_NUMBER || number > MAX_BALL_NUMBER) {
             throw new IllegalArgumentException();
         }
     }

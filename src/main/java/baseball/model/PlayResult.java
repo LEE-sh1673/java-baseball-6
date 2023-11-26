@@ -1,20 +1,20 @@
 package baseball.model;
 
-public class PlayResult {
+import static baseball.model.BallAttribute.NUMBER_OF_BALLS;
 
-    private static final int NUMBER_OF_BALL = 3;
+public class PlayResult {
 
     private int numberOfNothing;
 
-    public PlayResult() {
+    PlayResult() {
         this.numberOfNothing = 0;
     }
 
     public boolean isNothing() {
-        return numberOfNothing == NUMBER_OF_BALL;
+        return numberOfNothing == NUMBER_OF_BALLS;
     }
 
-    public void add(final CompareResult compare) {
+    void add(final CompareResult compare) {
         if (compare.isNothing()) {
             numberOfNothing++;
         }
