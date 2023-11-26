@@ -1,5 +1,5 @@
 package baseball.model;
 
 public enum CompareResult {
-    STRIKE, NOTHING
+    STRIKE, BALL, NOTHING
 }

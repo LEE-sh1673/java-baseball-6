@@ -22,4 +22,12 @@ public class BallTest {
         Ball player = new Ball(BallNumber.of(1), BallPosition.of(0));
         assertThat(computer.compare(player)).isEqualTo(CompareResult.STRIKE);
     }
+
+    @DisplayName("같은 수가 다른 자리에 있으면 볼이다.")
+    @Test
+    void givenSameNumbersInDifferentPosition_Then_BALL() {
+        Ball computer = new Ball(BallNumber.of(1), BallPosition.of(0));
+        Ball player = new Ball(BallNumber.of(1), BallPosition.of(2));
+        assertThat(computer.compare(player)).isEqualTo(CompareResult.BALL);
+    }
 }

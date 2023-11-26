@@ -1,5 +1,9 @@
 package baseball.model;
 
+import static baseball.model.CompareResult.BALL;
+import static baseball.model.CompareResult.NOTHING;
+import static baseball.model.CompareResult.STRIKE;
+
 import java.util.Objects;
 
 public class Ball {
@@ -15,9 +19,12 @@ public class Ball {
 
     CompareResult compare(final Ball other) {
         if (equals(other)) {
-            return CompareResult.STRIKE;
+            return STRIKE;
         }
-        return CompareResult.NOTHING;
+        if (matchNumber(other)) {
+            return BALL;
+        }
+        return NOTHING;
     }
 
     @Override
