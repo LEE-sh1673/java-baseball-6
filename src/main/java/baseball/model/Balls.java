@@ -7,10 +7,13 @@ import java.util.stream.IntStream;
 
 public class Balls {
 
+    private static final int BALL_NUMBER = 3;
+
     private final List<Ball> balls;
 
     private Balls(final List<Integer> numbers) {
         validateDuplicate(numbers);
+        validateSize(numbers);
         this.balls = makeBallNumbers(numbers);
     }
 
@@ -22,6 +25,12 @@ public class Balls {
         }
     }
 
+    private void validateSize(final List<Integer> numbers) {
+        if (numbers.size() != BALL_NUMBER) {
+            throw new IllegalArgumentException();
+        }
+    }
+
     private List<Ball> makeBallNumbers(final List<Integer> numbers) {
         return IntStream.range(0, numbers.size())
                 .mapToObj((idx) -> makeBall(numbers, idx))
@@ -29,10 +38,7 @@ public class Balls {
     }
 
     private Ball makeBall(final List<Integer> numbers, final int index) {
-        return new Ball(
-                BallNumber.of(numbers.get(index)),
-                BallPosition.of(index + 1)
-        );
+        return new Ball(BallNumber.of(numbers.get(index)), BallPosition.of(index + 1));
     }
 
     static Balls byNumbers(final List<Integer> numbers) {

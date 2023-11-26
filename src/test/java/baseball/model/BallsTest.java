@@ -14,4 +14,11 @@ public class BallsTest {
         assertThatThrownBy(() -> Balls.byNumbers(List.of(1, 1, 2)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @DisplayName("야구 숫자의 개수가 3개가 아니면 예외가 발생한다.")
+    @Test
+    void givenExceededNumberOfBall_Then_ExceptionOccurs() {
+        assertThatThrownBy(() -> Balls.byNumbers(List.of(1)))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
