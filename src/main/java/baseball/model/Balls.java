@@ -58,7 +58,7 @@ public class Balls {
     private CompareResult compare(final Ball other) {
         return balls.stream()
                 .map(ball -> ball.compare(other))
-                .filter(CompareResult::isNothing)
+                .filter(compareResult -> !compareResult.isNothing())
                 .findFirst()
                 .orElse(NOTHING);
     }
