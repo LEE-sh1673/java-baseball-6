@@ -1,5 +1,6 @@
 package baseball.model;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import java.util.List;
@@ -20,5 +21,19 @@ public class BallsTest {
     void givenExceededNumberOfBall_Then_ExceptionOccurs() {
         assertThatThrownBy(() -> Balls.byNumbers(List.of(1)))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("같은 숫자가 존재하지 않으면 낫싱이다.")
+    @Test
+    void givenBalls_WithDifferentNumbers_Then_NOTHING() {
+        // given
+        Balls computer = Balls.byNumbers(List.of(4, 2, 5));
+        Balls player = Balls.byNumbers(List.of(7, 8, 9));
+
+        // when
+        PlayResult playResult = computer.compare(player);
+
+        // then
+        assertThat(playResult.isNothing()).isTrue();
     }
 }

@@ -1,5 +1,7 @@
 package baseball.model;
 
+import static baseball.model.CompareResult.NOTHING;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -43,5 +45,22 @@ public class Balls {
 
     static Balls byNumbers(final List<Integer> numbers) {
         return new Balls(numbers);
+    }
+
+    PlayResult compare(final Balls other) {
+        final PlayResult playResult = new PlayResult();
+
+        for (final Ball ball : balls) {
+            playResult.add(other.compare(ball));
+        }
+        return playResult;
+    }
+
+    private CompareResult compare(final Ball other) {
+        return balls.stream()
+                .map(ball -> ball.compare(other))
+                .filter(CompareResult::isNothing)
+                .findFirst()
+                .orElse(NOTHING);
     }
 }
