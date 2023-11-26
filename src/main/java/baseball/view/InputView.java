@@ -14,6 +14,8 @@ public class InputView {
     private static final String INPUT_GAME_OPTION_NUMBER
             = "게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.";
 
+    private static final String NUMBER_SPLITTER = "";
+
     // 기본 생성자가 만들어지는 것을 막는다. (인스턴스화 방지용).
     private InputView() {
         throw new AssertionError();
@@ -26,7 +28,7 @@ public class InputView {
 
     private static List<Integer> readNumbers() {
         final String strNumber = Console.readLine();
-        final List<String> splitNumbers = Arrays.asList(strNumber.split(""));
+        final List<String> splitNumbers = Arrays.asList(strNumber.split(NUMBER_SPLITTER));
 
         splitNumbers.forEach(NumericValidator::validate);
 
