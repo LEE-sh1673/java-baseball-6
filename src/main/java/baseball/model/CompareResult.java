@@ -3,15 +3,15 @@ package baseball.model;
 public enum CompareResult {
     STRIKE, BALL, NOTHING;
 
-    public boolean isNothing() {
+    boolean isNothing() {
         return this == NOTHING;
     }
 
-    public boolean isStrike() {
+    boolean isStrike() {
         return this == STRIKE;
     }
 
-    public boolean isBall() {
+    boolean isBall() {
         return this == BALL;
     }
 }
