@@ -61,4 +61,23 @@ public class BallsTest {
                 Arguments.of(List.of(1, 2, 5), 2)
         );
     }
+
+    @DisplayName("두 야구공을 비교하여 볼의 개수를 구한다.")
+    @ParameterizedTest
+    @MethodSource("providePlayBallsWithNumberOfBalls")
+    void givenComputerBalls_WithPlayBallNumbers_Then_NumberBallsReturns(
+            final List<Integer> playerNumbers,
+            final int expectedNumberOfBalls
+    ) {
+        PlayResult playResult = computer.compare(Balls.byNumbers(playerNumbers));
+        assertThat(playResult.numberOfBalls()).isEqualTo(expectedNumberOfBalls);
+    }
+
+    private static Stream<Arguments> providePlayBallsWithNumberOfBalls() {
+        return Stream.of(
+                Arguments.of(List.of(4, 5, 6), 1),
+                Arguments.of(List.of(5, 6, 2), 2),
+                Arguments.of(List.of(5, 4, 2), 3)
+        );
+    }
 }

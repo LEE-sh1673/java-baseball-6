@@ -8,6 +8,8 @@ public class PlayResult {
 
     private int numberOfStrike;
 
+    private int numberOfBalls;
+
     PlayResult() {
         this.numberOfNothing = 0;
     }
@@ -24,12 +26,19 @@ public class PlayResult {
         return numberOfStrike;
     }
 
+    public int numberOfBalls() {
+        return numberOfBalls;
+    }
+
     void add(final CompareResult compare) {
         if (compare.isNothing()) {
             numberOfNothing++;
         }
         if (compare.isStrike()) {
             numberOfStrike++;
+        }
+        if (compare.isBall()) {
+            numberOfBalls++;
         }
     }
 }
