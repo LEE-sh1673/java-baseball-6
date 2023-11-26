@@ -20,7 +20,7 @@ public class BallNumber {
         }
     }
 
-    public static BallNumber of(final int number) {
+    static BallNumber of(final int number) {
         return new BallNumber(number);
     }
 

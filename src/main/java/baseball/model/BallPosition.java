@@ -10,7 +10,7 @@ public class BallPosition {
         this.position = position;
     }
 
-    public static BallPosition of(final int position) {
+    static BallPosition of(final int position) {
         return new BallPosition(position);
     }
 
