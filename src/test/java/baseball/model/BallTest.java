@@ -12,8 +12,14 @@ public class BallTest {
     void givenDifferentNumbers_Then_NOTHING() {
         Ball computer = new Ball(BallNumber.of(4), BallPosition.of(0));
         Ball player = new Ball(BallNumber.of(1), BallPosition.of(0));
+        assertThat(computer.compare(player)).isEqualTo(CompareResult.NOTHING);
+    }
 
-        CompareResult result = computer.compare(player);
-        assertThat(result).isEqualTo(CompareResult.NOTHING);
+    @DisplayName("같은 수가 같은 자리에 있으면 스트라이크이다.")
+    @Test
+    void givenSameNumbersInSamePosition_Then_NOTHING() {
+        Ball computer = new Ball(BallNumber.of(1), BallPosition.of(0));
+        Ball player = new Ball(BallNumber.of(1), BallPosition.of(0));
+        assertThat(computer.compare(player)).isEqualTo(CompareResult.STRIKE);
     }
 }
