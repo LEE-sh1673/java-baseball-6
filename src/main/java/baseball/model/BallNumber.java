@@ -4,6 +4,7 @@ public class BallNumber {
 
     private static final int MIN = 1;
     private static final int MAX = 9;
+
     private final int number;
 
     private BallNumber(final int number) {
