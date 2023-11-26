@@ -25,4 +25,8 @@ public enum GameOption {
         return Optional.ofNullable(numberToOption.get(optionNumber))
                 .orElseThrow(IllegalArgumentException::new);
     }
+
+    public boolean isRestart() {
+        return this == RESTART;
+    }
 }
