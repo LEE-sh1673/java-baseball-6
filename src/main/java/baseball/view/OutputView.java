@@ -47,12 +47,15 @@ public class OutputView {
             final StringJoiner message,
             final PlayResult playResult
     ) {
+        final StringBuilder strikeMessage = new StringBuilder();
+
         if (playResult.numberOfStrikes() != 0) {
-            message.add(String.format(STRIKE_FORMAT, playResult.numberOfStrikes()));
+            strikeMessage.append(String.format(STRIKE_FORMAT, playResult.numberOfStrikes()));
         }
         if (playResult.isAllStrike()) {
-            message.add(System.lineSeparator())
-                    .add(RESULT_ALL_STRIKE);
+            strikeMessage.append(System.lineSeparator())
+                    .append(RESULT_ALL_STRIKE);
         }
+        message.add(strikeMessage);
     }
 }
